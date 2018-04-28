@@ -4,7 +4,7 @@ OCAMLFIND_VERSION = "1.7.3"
 COMPILER_NAME = "ocaml-base-compiler.%s" % OCAML_VERSION
 
 # Set to false to see debug messages
-DEBUG_QUIET = True
+DEBUG_QUIET = False
 
 # The path to the root opam directory
 OPAM_ROOT_DIR = "OPAM_ROOT_DIR"

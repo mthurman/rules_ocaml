@@ -42,14 +42,15 @@ filegroup(
 def _ocaml_toolchain_impl(repository_ctx):
   opam_bin = repository_ctx.path(repository_ctx.attr._opam)
 
-  # Initialize opam and its root directory
-  repository_ctx.execute([
-      opam_bin,
-      "init",
-      "--root", OPAM_ROOT_DIR,
-      "--no-setup",
-      "--comp", COMPILER_NAME
-  ], quiet = DEBUG_QUIET)
+  if not repository_ctx.path(OPAM_ROOT_DIR).exists:
+    # Initialize opam and its root directory
+    repository_ctx.execute([
+        opam_bin,
+        "init",
+        "--root", OPAM_ROOT_DIR,
+        "--no-setup",
+        "--comp", COMPILER_NAME
+    ], quiet = DEBUG_QUIET)
 
   # Download the OCaml compiler
   repository_ctx.execute([

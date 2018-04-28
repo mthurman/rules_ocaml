@@ -108,7 +108,7 @@ def _ocaml_binary_impl(ctx):
   pkgs = ""
   opam_packages = ctx.attr.opam_packages
   if (len(opam_packages) > 0):
-    pkgs += "-pkgs " + '",".join(opam_packages) + "' -use-ocamlfind"
+    pkgs += "-pkgs '" + ",".join(opam_packages) + "' -use-ocamlfind"
 
   command = " ".join([
       opam_env_command,

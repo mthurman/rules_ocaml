@@ -41,7 +41,7 @@ filegroup(
 
 def _ocaml_toolchain_impl(repository_ctx):
   opam_bin = repository_ctx.path(repository_ctx.attr._opam)
-  path = repository_ctx.path("external/ocaml_toolchain/%s" % OPAM_ROOT_DIR)
+  path = repository_ctx.path(OPAM_ROOT_DIR)
   print(path)
   print(path.exists)
   if not path.exists:

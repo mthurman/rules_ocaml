@@ -43,7 +43,8 @@ def _ocaml_toolchain_impl(repository_ctx):
   opam_bin = repository_ctx.path(repository_ctx.attr._opam)
   print(repository_ctx.path(OPAM_ROOT_DIR))
   print(repository_ctx.path(OPAM_ROOT_DIR).exists)
-  if not repository_ctx.path(OPAM_ROOT_DIR).exists:
+  print(repository_ctx.path("/execroot/__main__/" + OPAM_ROOT_DIR))
+  if not repository_ctx.path("/execroot/__main__/" + OPAM_ROOT_DIR).exists:
     # Initialize opam and its root directory
     repository_ctx.execute([
         opam_bin,
